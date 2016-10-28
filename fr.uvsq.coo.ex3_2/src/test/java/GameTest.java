@@ -3,6 +3,12 @@
  */
 
 import junit.framework.TestCase;
+import org.junit.Test;
+
+import java.util.ArrayList;
+
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 
 public class GameTest extends TestCase {
@@ -25,5 +31,17 @@ public class GameTest extends TestCase {
     public void testAllOnes() throws Exception {
         rollMany(20,1);
         assertEquals(20,g.score());
+    }
+
+    public void testOneSpare() throws Exception{
+        rollSpare();
+        g.roll(3);
+        rollMany(17,0);
+        assertEquals(16,g.score());
+    }
+
+    private void rollSpare(){
+        g.roll(5);
+        g.roll(5);
     }
 }
