@@ -1,7 +1,3 @@
-/**
- * Created by erickloulou on 28/10/2016.
- */
-
 import junit.framework.TestCase;
 import org.junit.Test;
 
@@ -10,7 +6,9 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
-
+/**
+ * Created by erickloulou on 28/10/2016.
+ */
 public class GameTest extends TestCase {
     private Game g;
 
@@ -38,6 +36,18 @@ public class GameTest extends TestCase {
         g.roll(3);
         rollMany(17,0);
         assertEquals(16,g.score());
+    }
+
+    public void testOneStrike() throws Exception {
+        rollStrike();
+        g.roll(3);
+        g.roll(4);
+        rollMany(16,0);
+        assertEquals(24,g.score());
+    }
+
+    private void rollStrike(){
+        g.roll(10);
     }
 
     private void rollSpare(){
