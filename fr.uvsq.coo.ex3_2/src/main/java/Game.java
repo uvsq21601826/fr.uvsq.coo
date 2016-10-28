@@ -36,8 +36,6 @@ public class Game {
         return rolls[frameIndex]==10;
     }
 
-
-
     private int sumOfBallsInFrame(int frameIndex){
         return rolls[frameIndex]+rolls[frameIndex+1];
     }
